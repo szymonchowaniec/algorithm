@@ -56,11 +56,63 @@ public class ArrayStructures {
         }
     }
 
-    public void inserValue(int value){
+    public void insertValue(int value){
         if(arraySize<50){
             theArray[arraySize] = value;
             arraySize++;
         }
 
     }
+
+    public int linearSearch(int value){
+        int counter = 0;
+        for (int i = 0; i < arraySize; i++) {
+            if(theArray[i] == value) counter ++;
+        }
+        return counter;
+    }
+
+    public String linearSearchWithIndex(int value){
+        StringBuilder indexesWithValue = new StringBuilder();
+        boolean valueInArray = false;
+
+        System.out.println("The value found in following index; ");
+        for (int i = 0; i < arraySize; i++) {
+            if(theArray[i] == value){
+                valueInArray = true;
+                System.out.println(i+" ");
+                indexesWithValue.append(i).append(" ");
+            }
+        }
+
+        if(!valueInArray){
+            System.out.println("None");
+        }
+
+        return indexesWithValue.toString();
+    }
+
+    public static void main(String[] args) {
+        ArrayStructures arrayStructures = new ArrayStructures();
+        arrayStructures.generateRandomArray();
+        arrayStructures.printArray();
+        System.out.println("Get value at Index 4: "+arrayStructures.getValueAtIndex(4));
+//        System.out.println("Does Array contains value 10: "+ arrayStructures.doesArrayContainsThisValue(10));
+
+//        System.out.println("I want delete value at index 2 (recursion method) and print Array");
+//        arrayStructures.deleteIndexRecursion(3);
+//        arrayStructures.printArray();
+//
+//        System.out.println("I want delete value at index 3 (for loop method) and print Array");
+//        arrayStructures.deleteIndex(6);
+//        arrayStructures.printArray();
+
+//        arrayStructures.insertValue(22);
+
+
+        System.out.format("We looking for number 15. It appears %d times in Array.%n ", arrayStructures.linearSearch(15) );
+
+        arrayStructures.linearSearchWithIndex(15);
+    }
+
 }
