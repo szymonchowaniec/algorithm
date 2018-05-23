@@ -45,16 +45,25 @@ public class TheStack{
         return stackArray[topOfStack];
     }
 
+    public void pushMany(String multipleValues){
+        String [] values = multipleValues.split(" ");
+
+        for (int i = 0; i < values.length; i++) {
+            push(values[i]);
+        }
+    }
+
+    public void popAll(){
+        for (int i = topOfStack; i >=0 ; i--) {
+            pop();
+        }
+    }
+
     public static void main(String[] args) {
          TheStack theStack = new TheStack(6);
 
          theStack.push("12");
-         theStack.push("12");
-         theStack.push("12");
-         theStack.push("12");
-         theStack.push("12");
-         theStack.push("12");
-         theStack.push("12");
+         theStack.pushMany("13 14 18");
 
         System.out.println(theStack.peek());
 
