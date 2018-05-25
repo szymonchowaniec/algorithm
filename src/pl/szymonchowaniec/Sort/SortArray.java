@@ -115,5 +115,6 @@ public class SortArray {
 
         sortArray.binarySearchForValue(19);
         sortArray.binarySearchForValue(11);
+
     }
 }
